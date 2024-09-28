@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>quiz</title>
+  </head>
+  <body>
+    <form id="login-form">
+      <label for="User Name">username:</label>
+      <input type="text" id="Username" name="username" /><br />
+      <label for="Password">password:</label>
+      <input type="password" id="password" name="password" /><br />
+      <input type="button" value="Login" onclick="validateLogin()" />
+    </form>
+    <script>
+      function validateLogin() {
+        var username = document.getElementById("username").Value;
+        var password = document.getElementById("password").Value;
+        if (username === "aravind" && password === "1234") {
+          window.location.href = "1.html";
+        } else {
+          document.getElementById("message").innerHTML =
+            "invalid login details.please try again.";
+        }
+      }
+    </script>
+  </body>
+</html>

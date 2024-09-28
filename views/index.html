@@ -1,0 +1,578 @@
+<html>
+  <head>
+    <title>ayurX</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <!-- header section-->
+    <header class="header">
+      <a href="#" class="logo"
+        ><i class="fa fa-pagelines" aria-hidden="true"></i> S&S AyurX</a
+      >
+      <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#features">features</a>
+        <a href="#products">products</a>
+        <a href="#categories">categories</a>
+        <a href="#reviews">review</a>
+        <a href="#blogs">blogs</a>
+      </nav>
+
+      <div class="icons">
+        <div class="fa fa-bars" id="menu-btn"></div>
+        <div class="fa fa-search" id="search-btn"></div>
+        <div class="fa fa-shopping-cart" id="shopping-btn"></div>
+        <div class="fa fa-user" id="login-btn"></div>
+      </div>
+      <form class="search-form">
+        <input type="search" id="search-box" placeholder="search Here....." />
+        <label for="search-box" class="fa fa-search"></label>
+      </form>
+      <div
+        id="cart-items-container"
+        class="overflow-y-scroll shopping-cart"
+        style="height: 300px"
+      >
+        <div class="box">
+          <i class="fa fa-trash"></i>
+          <img src="image/img1.jpg" />
+          <div class="content">
+            <h3>Aloevera gel</h3>
+            <span class="price">Rs 300/-</span>
+            <span class="Quantity">Qty : 1</span>
+          </div>
+        </div>
+        <div class="box">
+          <i class="fa fa-trash"></i>
+          <img src="image/img2.jpg" />
+          <div class="content">
+            <h3>jamun karela juice</h3>
+            <span class="price">Rs 450/-</span>
+            <span class="Quantity">Qty : 5</span>
+          </div>
+        </div>
+        <div class="box">
+          <i class="fa fa-trash"></i>
+          <img src="image/img3.png" />
+          <div class="content">
+            <h3>Hair cleanser</h3>
+            <span class="price">Rs 500/-</span>
+            <span class="Quantity">Qty : 3</span>
+          </div>
+        </div>
+
+        <div class="total">total :Rs 1250/-</div>
+        <a href="#" class="btn">Checkout</a>
+        <a href="/buyNow">Buy Now</a>
+      </div>
+
+      <form action="/login" method="post" id="login-form" class="login-form">
+        <h3>Login now</h3>
+        <input
+          type="text"
+          id="login-username"
+          name="username"
+          placeholder="your username"
+          class="box"
+        />
+        <input
+          type="password"
+          id="login-password"
+          name="password"
+          placeholder="your password"
+          class="box"
+        />
+
+        <p>Forget your Password <a href="#">Click Here</a></p>
+        <p>Don't Have An Account <a href="/createAccount">Create Now</a></p>
+
+        <input type="submit" value="login Now" class="btn" />
+      </form>
+    </header>
+
+    <section class="home" id="home">
+      <div class="content">
+        <h3 class="text-6xl font-semibold leading-snug">
+          Experience the Power of <span>Natural Healing</span>
+        </h3>
+        <p class="text-2xl mb-8">
+          Ayurveda encourages certain lifestyle interventions and natural
+          therapies to regain a balance between the body, mind, spirit, and the
+          environment.
+        </p>
+
+        <a
+          href="#"
+          class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded mt-8 text-2xl"
+          >shop now</a
+        >
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <h1 class="heading">Our <span>Features</span></h1>
+
+      <div class="flex justify-evenly">
+        <div class="w-1/4">
+          <div class="card h-100 border-2 border-gray-200 border-opacity-60">
+            <img src="image/img6.2.jpg" class="card-img-top" alt="..." />
+            <div class="card-body p-6">
+              <h5 class="text-3xl font-medium text-gray-900 mb-3">
+                Treatment of diseases
+              </h5>
+              <p class="leading-relaxed mb-3 text-lg">
+                treatments for chronic illnesses focus on reducing symptoms and
+                preventing or delaying complications
+              </p>
+              <a
+                href="#"
+                class="inline-flex text-xl text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mt-4"
+                >Read more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="w-1/4">
+          <div class="card h-100 border-2 border-gray-200 border-opacity-60">
+            <img src="image/img7.1.jpg" class="card-img-top" alt="..." />
+            <div class="card-body p-6">
+              <h5 class="text-3xl font-medium text-gray-900 mb-3">
+                Free Deleivery
+              </h5>
+              <p class="leading-relaxed mb-3 text-lg">
+                Creating a minimum purchase threshold is a more cost-effective
+                way of offering free delivery or shipping.
+              </p>
+              <a
+                href="#"
+                class="inline-flex text-xl text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mt-4"
+                >Read more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="w-1/4">
+          <div class="card h-100 border-2 border-gray-200 border-opacity-60">
+            <img src="image/img7.2.jpg" class="card-img-top" alt="..." />
+            <div class="card-body p-6">
+              <h5 class="text-3xl font-medium text-gray-900 mb-3">
+                Easy payment
+              </h5>
+              <p class="leading-relaxed mb-3 text-lg">
+                the plan that converts a retail purchase amount charged to a
+                Card into monthly instalment payment with an agreed instalment
+                payment period.
+              </p>
+              <a
+                href="#"
+                class="inline-flex text-xl text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mt-4"
+                >Read more</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="Products" id="products">
+      <h1 class="heading">Our <span>Products</span></h1>
+
+      <div class="flex justify-evenly">
+        <div class="w-1/4">
+          <div class="card h-100 border-2 border-gray-200 border-opacity-60">
+            <img src="image/pr1.1.png" class="card-img-top" alt="..." />
+            <div class="card-body p-6">
+              <h5 class="text-2xl font-medium text-gray-900 mb-3">
+                Ginger Candy
+              </h5>
+              <p class="price text-xl">Rs 120</p>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+            </div>
+            <div class="card-footer px-6 pb-4">
+              <small class="text-sm">Last updated 3 mins ago</small>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/4">
+          <div class="card h-100 border-2 border-gray-200 border-opacity-60">
+            <img src="image/pr2.jpeg" class="card-img-top" alt="..." />
+            <div class="card-body p-6">
+              <h5 class="text-2xl font-medium text-gray-900 mb-3">
+                Divya Madhunashini Vati
+              </h5>
+              <div class="price text-xl">Rs 320</div>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+            </div>
+            <div class="card-footer px-6 pb-4">
+              <small class="text-sm">Last updated 3 mins ago</small>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/4">
+          <div class="card h-100 border-2 border-gray-200 border-opacity-60">
+            <img src="image/pr3.jpg" class="card-img-top" alt="..." />
+            <div class="card-body p-6">
+              <h5 class="text-2xl font-medium text-gray-900 mb-3">
+                Amla Candy
+              </h5>
+              <div class="price text-xl">Rs 80</div>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+            </div>
+            <div class="card-footer px-6 pb-4">
+              <small class="text-sm">Last updated 3 mins ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a
+          href="/products"
+          class="inline-flex text-xl text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mt-4 ms-24"
+          >See More</a
+        >
+      </div>
+    </section>
+
+    <!--our categories section-->
+    <section class="categories" id="categories">
+      <h1 class="heading">Products <span>categories</span></h1>
+
+      <div class="box-container">
+        <div class="box">
+          <img src="image/cat1.jpg" />
+          <h3>Oral care</h3>
+          <p>upto 45% off</p>
+          <a
+            href="#"
+            class="inline-flex text-xl text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mt-4"
+            >Shop now</a
+          >
+        </div>
+        <div class="box">
+          <img src="image/cat2.jpeg" />
+          <h3>Ayur skin care</h3>
+          <p>upto 45% off</p>
+          <a
+            href="#"
+            class="inline-flex text-xl text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mt-4"
+            >Shop now</a
+          >
+        </div>
+        <div class="box">
+          <img src="image/cat3.jpeg" />
+          <h3>Ayurvedic medicine</h3>
+          <p>upto 45% off</p>
+          <a
+            href="#"
+            class="inline-flex text-xl text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mt-4"
+            >Shop now</a
+          >
+        </div>
+        <div class="box">
+          <img src="image/cat4.jpg" />
+          <h3>Ayur Food products</h3>
+          <p>upto 45% off</p>
+          <a
+            href="#"
+            class="inline-flex text-xl text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded mt-4"
+            >Shop now</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!--reviews section-->
+    <section class="review" id="reviews">
+      <h1 class="heading">customer's <span>review</span></h1>
+
+      <div class="flex justify-evenly">
+        <div class="w-1/4">
+          <div class="card">
+            <img
+              src="image/rev1.jpg"
+              class="customer-img card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h3 class="text-2xl font-medium mt-10">Hely dey</h3>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+              <p class="card-text">
+                AyurX website is a comprehensive online platform that aligns
+                perfectly with the brand's mission of promoting holistic health
+                and well-being
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/4">
+          <div class="card">
+            <img
+              src="image/rev2.jpg"
+              class="customer-img card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h3 class="text-2xl font-medium mt-10">james bet</h3>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+              <p class="card-text">
+                you're seeking Ayurvedic remedies or natural skincare solutions,
+                you're likely to find what you need here.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/4">
+          <div class="card">
+            <img
+              src="image/rev3.jpeg"
+              class="customer-img card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h3 class="text-2xl font-medium mt-10">kylie taits</h3>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half"></i>
+              </div>
+              <p class="card-text">
+                User-Friendly,clean and straightforward design makes navigation
+                a breeze Products are organized into categories, and the search
+                functionality is effective.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--blogs-->
+    <section class="blogs" id="blogs">
+      <h1 class="heading">our <span>blogs</span></h1>
+      <div class="box-container">
+        <div class="box">
+          <img src="image/b1.jpg" />
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fa fa-user"></i> By user</a>
+              <a href="#"><i class="fa fa-calendar"></i> 3rd sept,2021</a>
+            </div>
+            <h3>ayurvedic food and grains</h3>
+            <p>
+              When diet is wrong, medicine is of no use. When diet is correct,
+              medicine is of no need
+            </p>
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="image/b2.jpg" />
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fa fa-user"></i> By user</a>
+              <a href="#"><i class="fa fa-calendar"></i> 3rd sept,2021</a>
+            </div>
+            <h3>Ayur skin care</h3>
+            <p>
+              Ayurveda is not just about treating diseases; it is about creating
+              harmony in body, mind, and spirit
+            </p>
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+        <div class="box">
+          <img src="image/b3.jpeg" />
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fa fa-user"></i> By user</a>
+              <a href="#"><i class="fa fa-calendar"></i> 3rd sept,2021</a>
+            </div>
+            <h3>ayurvedic meditatation</h3>
+            <p>
+              Ayurveda is a science that provides us with the knowledge of how
+              to prevent disease and how to eliminate its root cause if it does
+              occur.
+            </p>
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>AyurX <i class="fa fa-pagelines"></i></h3>
+          <p>
+            The motive of AyurX is complete health for all and it first believes
+            in maintenance of health.
+          </p>
+          <div class="share d-flex flex-row">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter ms-4"></a>
+            <a href="#" class="fa fa-instagram ms-4"></a>
+            <a href="#" class="fa fa-linkedin ms-4"></a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>contact Info</h3>
+          <a href="#" class="links">
+            <i class="fa fa-phone">
+              <span class="text-black">+91 8191959347</span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-phone">
+              <span class="text-black">+91 981 234 5678</span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-envelope">
+              <span class="text-black">info@ayurx.com</span></i
+            >
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-map-marker"
+              ><span class="text-black">pune,India</span></i
+            >
+          </a>
+        </div>
+
+        <div class="box">
+          <h3>Quick links</h3>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> Home </span>
+            </i></a
+          >
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> features </span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> products </span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> categories </span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black">review</span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> blogs </span>
+            </i>
+          </a>
+        </div>
+
+        <div class="box">
+          <h3>Newsletter</h3>
+          <p>Subscribe for latest updates</p>
+          <input
+            type="email"
+            placeholder="your email"
+            class="email border border-black p-4"
+          />
+          <input
+            type="submit"
+            class="btn btn-danger"
+            value="subscribe"
+            class="btn"
+          />
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const login_Form = document.getElementById("login-form");
+
+      login_Form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const username = document.getElementById("login-username").value;
+        const password = document.getElementById("login-password").value;
+
+        // Send login data to the server using fetch or XMLHttpRequest
+        fetch("/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              // Login successful, you can redirect the user or perform other actions
+              alert("Login successful!");
+              window.location.href = "/";
+            } else {
+              // Login failed, show an error message
+              alert("Login failed. Please check your username and password.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+    </script>
+
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script> -->
+    <script src="/script.js"></script>
+  </body>
+</html>

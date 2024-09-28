@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Now - S&S Ayur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section>
+      <div class="container my-16 mx-14">
+        <h2 class="font-bold text-3xl">Order Review</h2>
+        <div class="flex justify-between mt-10 mx-8">
+          <div class="column-middle w-3/12">
+            <div id="cartItemsContainer"></div>
+          </div>
+          <div class="column-left w-3/12">
+            <form id="orderForm" action="/placeOrder" method="post">
+              <div class="form-group">
+                <label class="leading-7 text-base text-gray-600" for="address"
+                  >Address:</label
+                >
+                <textarea
+                  class="w-full bg-gray-100 bg-opacity-50 rounded focus:ring-2 focus:ring-indigo-200 focus:bg-transparent border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  name="address"
+                  id="address"
+                  cols="30"
+                  rows="2"
+                ></textarea>
+              </div>
+              <div class="form-group mt-4">
+                <span class="block leading-7 text-base text-gray-600"
+                  >Payment Method</span
+                >
+                <div class="relative">
+                  <select
+                    id="payment-method"
+                    class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-sm px-3"
+                  >
+                    <option value="UPI">UPI</option>
+                    <option value="card">Card</option>
+                    <option value="Netbanking">Netbanking</option>
+                    <option value="COD">COD</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group mt-4">
+                <span class="block leading-7 text-base text-gray-600"
+                  >shipping Method</span
+                >
+                <div class="relative">
+                  <select
+                    id="shipping-dropDown"
+                    class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base px-3"
+                  >
+                    <option value="Standard Shipping">Standard Shipping</option>
+                    <option value="Express Shipping">Express Shipping</option>
+                    <option value="Priority Shipping">Priority Shipping</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="column-right w-3/12">
+            <div class="m-2 border border-slate-300 px-2 py-3 rounded">
+              <button
+                type="button"
+                onclick="placeOrder()"
+                class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-sm w-full mb-5"
+              >
+                Place Order
+              </button>
+              <div class="flex justify-between">
+                <label class="leading-7 text-base text-gray-600" for="address"
+                  >Price:
+                </label>
+                <span> ₹<span id="Product-total"></span></span>
+                <input type="hidden" id="Product-total-in" />
+              </div>
+              <div class="flex border-b border-slate-400 pb-2 justify-between">
+                <label class="leading-7 text-base text-gray-600" for="address"
+                  >Shipping Cost:
+                </label>
+                <span> ₹<span id="shipping-price"></span></span>
+                <input type="hidden" id="shipping-price-in" />
+              </div>
+              <div class="border-t mt-1 border-slate-400 flex justify-between">
+                <label class="leading-7 text-base text-gray-600" for="address"
+                  >Total Price:
+                </label>
+                <span> ₹<span id="total-price"></span></span>
+                <input type="hidden" id="total-price-in" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const shippingDropDown = document.getElementById("shipping-dropDown");
+      const product_total = document.getElementById("Product-total");
+      const product_total_in = document.getElementById("Product-total-in");
+      const totalPrice = document.getElementById("total-price");
+      const totalPriceIn = document.getElementById("total-price-in");
+      const shippingPriceElement = document.getElementById("shipping-price");
+      const shippingPriceIn = document.getElementById("shipping-price-in");
+
+      function displayCartItems() {
+        var cartItemsContainer = document.getElementById("cartItemsContainer");
+
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        var cartItemsHTML = "";
+
+        cartItems.forEach(function (cartItem) {
+          var itemHTML = `
+      <div class="flex py-2">
+        <img src="${cartItem.image}" class="w-20" alt="${cartItem.name}" style="max-width: 100px; max-height: 100px;" />
+        <div class="ml-4 mt-4  text-base text-gray-700">
+          <p>${cartItem.name}</p>
+          <p>₹${cartItem.price}</p>
+        </div>
+      </div>
+      <hr/>
+    `;
+
+          cartItemsHTML += itemHTML;
+        });
+
+        cartItemsContainer.innerHTML = cartItemsHTML;
+      }
+
+      function ProductTotal() {
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        let totalPriceValue = 0;
+
+        cartItems.forEach(function (cartItem) {
+          totalPriceValue += cartItem.price;
+        });
+
+        product_total.innerText = totalPriceValue;
+        product_total_in.value = totalPriceValue;
+      }
+
+      function calculateShippingPrice() {
+        let shippingType = shippingDropDown.value;
+
+        if (shippingType == "Standard Shipping") {
+          shippingPriceElement.innerText = 30;
+          shippingPriceIn.value = 30;
+          totalPrice.innerText = parseInt(product_total.innerText) + 30;
+          totalPriceIn.value = parseInt(product_total.innerText) + 30;
+        } else if (shippingType == "Express Shipping") {
+          shippingPriceElement.innerText = 60;
+          shippingPriceIn.value = 60;
+          totalPrice.innerText = parseInt(product_total_in.value) + 60;
+          totalPriceIn.value = parseInt(product_total_in.value) + 60;
+        } else if (shippingType == "Priority Shipping") {
+          shippingPriceElement.innerText = 100;
+          shippingPriceIn.value = 100;
+          totalPrice.innerText = parseInt(product_total_in.value) + 100;
+          totalPriceIn.value = parseInt(product_total_in.value) + 100;
+        }
+      }
+
+      shippingDropDown.addEventListener("change", function () {
+        ProductTotal();
+        calculateShippingPrice();
+      });
+
+      function placeOrder() {
+        const address = document.getElementById("address").value;
+        const paymentMethod = document.getElementById("payment-method").value;
+        const shippingMethod =
+          document.getElementById("shipping-dropDown").value;
+        const totalPrice = totalPriceIn.value;
+
+        if (!address) {
+          alert("Please enter your address.");
+          return;
+        }
+
+        const orderData = {
+          address: address,
+          paymentMethod: paymentMethod,
+          shippingMethod: shippingMethod,
+          totalPrice: totalPrice,
+        };
+
+        localStorage.removeItem("cartItems");
+
+        // Send a POST request to the server with the data
+        fetch("/placeOrder", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            if (data.success) {
+              // Redirect to a different page (replace 'newPage.html' with your desired page)
+              window.location.href = "/orderConfirm";
+            } else {
+              // Handle the case where the order placement failed
+              alert("Order placement failed. Please try again.");
+            }
+            // Handle the server response here
+          })
+          .catch((error) => {
+            console.error("Error placing order:", error);
+          });
+      }
+
+      displayCartItems();
+      ProductTotal();
+      calculateShippingPrice();
+    </script>
+  </body>
+</html>

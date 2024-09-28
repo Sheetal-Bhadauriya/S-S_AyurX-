@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" style="color: blue" class="logo">
+        <i class="fa fa-pagelines" aria-hidden="true"></i>
+        S&S AyurX
+      </a>
+      <nav class="navbar">
+        <a href="/">home</a>
+        <a href="#features">features</a>
+        <a href="/products">products</a>
+        <a href="#categories">categories</a>
+        <a href="#reviews">review</a>
+        <a href="#blogs">blogs</a>
+      </nav>
+
+      <div class="icons">
+        <div class="fa fa-bars" id="menu-btn"></div>
+        <div class="fa fa-search" id="search-btn"></div>
+        <div class="fa fa-shopping-cart" id="shopping-btn"></div>
+        <div class="fa fa-user" id="login-btn"></div>
+      </div>
+      <form class="search-form">
+        <input type="search" id="search-box" placeholder="search Here....." />
+        <label for="search-box" class="fa fa-search"></label>
+      </form>
+
+      <form
+        id="cartForm"
+        action="/buynow"
+        method="post"
+        class="flex flex-col shopping-cart"
+      >
+        <div
+          id="cart-items-container"
+          class="overflow-y-scroll"
+          style="height: 300px"
+        >
+          <div class="box">
+            <i class="fa fa-trash"></i>
+            <img src="image/img1.jpg" />
+            <div class="content">
+              <h3>Aloevera gel</h3>
+              <span class="price">Rs 300/-</span>
+              <span class="Quantity">Qty : 1</span>
+            </div>
+          </div>
+          <div class="box">
+            <i class="fa fa-trash"></i>
+            <img src="image/img2.jpg" />
+            <div class="content">
+              <h3>jamun karela juice</h3>
+              <span class="price">Rs 450/-</span>
+              <span class="Quantity">Qty : 5</span>
+            </div>
+          </div>
+          <div class="box">
+            <i class="fa fa-trash"></i>
+            <img src="image/img3.png" />
+            <div class="content">
+              <h3>Hair cleanser</h3>
+              <span class="price">Rs 500/-</span>
+              <span class="Quantity">Qty : 3</span>
+            </div>
+          </div>
+
+          <div class="total">total :Rs 1250/-</div>
+        </div>
+        <a
+          class="py-3 px-4 bg-slate-700 text-white text-xl rounded"
+          href="/buynow"
+        >
+          Checkout
+        </a>
+      </form>
+
+      <form action="/login" method="post" id="login-form" class="login-form">
+        <h3>Login now</h3>
+        <input
+          type="text"
+          id="login-username"
+          name="username"
+          placeholder="your username"
+          class="box"
+        />
+        <input
+          type="password"
+          id="login-password"
+          name="password"
+          placeholder="your password"
+          class="box"
+        />
+
+        <p>Forget your Password <a href="#">Click Here</a></p>
+        <p>Don't Have An Account <a href="/createAccount">Create Now</a></p>
+
+        <input type="submit" value="login Now" class="btn" />
+      </form>
+    </header>
+
+    <section class="mt-20 text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex justify-center flex-wrap -m-4 gap-12">
+          <% products.forEach((product) => { %>
+          <div
+            class="bg-slate-200 lg:w-1/4 md:w-1/2 p-4 w-full product-container"
+          >
+            <a class="block relative h-80 rounded overflow-hidden">
+              <img
+                alt="ecommerce"
+                class="w-full h-full block"
+                src="<%= product.pImgUrl %>"
+              />
+            </a>
+            <div class="mt-4">
+              <h3
+                class="product-name text-gray-500 text-base tracking-widest title-font mb-1"
+              >
+                Ayurvedic
+              </h3>
+              <h2 class="text-gray-900 text-3xl title-font font-medium">
+                <%= product.pname %>
+              </h2>
+              <p class="product-price mt-1 text-xl">
+                Price: <span id="product-price"><%= product.price %></span>
+              </p>
+              <p class="product-quantity mt-1 text-xl">
+                Quantity: <%= product.quantity %>
+              </p>
+              <button
+                class="add-to-cart-button flex mt-4 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+              >
+                Add to cart
+              </button>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>AyurX <i class="fa fa-pagelines"></i></h3>
+          <p>
+            The motive of AyurX is complete health for all and it first believes
+            in maintenance of health.
+          </p>
+          <div class="share d-flex flex-row">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter ms-4"></a>
+            <a href="#" class="fa fa-instagram ms-4"></a>
+            <a href="#" class="fa fa-linkedin ms-4"></a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>contact Info</h3>
+          <a href="#" class="links">
+            <i class="fa fa-phone">
+              <span class="text-black">+91 8191959347</span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-phone">
+              <span class="text-black">+91 981 234 5678</span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-envelope">
+              <span class="text-black">info@ayurx.com</span></i
+            >
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-map-marker"
+              ><span class="text-black">pune,India</span></i
+            >
+          </a>
+        </div>
+
+        <div class="box">
+          <h3>Quick links</h3>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> Home </span>
+            </i></a
+          >
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> features </span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> products </span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> categories </span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black">review</span>
+            </i>
+          </a>
+          <a href="#" class="links">
+            <i class="fa fa-arrow-right">
+              <span class="text-black"> blogs </span>
+            </i>
+          </a>
+        </div>
+
+        <div class="box">
+          <h3>Newsletter</h3>
+          <p>Subscribe for latest updates</p>
+          <input
+            type="email"
+            placeholder="your email"
+            class="email border border-black p-4"
+          />
+          <input
+            type="submit"
+            class="btn btn-danger"
+            value="subscribe"
+            class="btn"
+          />
+        </div>
+      </div>
+    </section>
+    <script src="/script.js"></script>
+  </body>
+</html>
